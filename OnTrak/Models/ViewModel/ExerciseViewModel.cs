@@ -15,6 +15,7 @@ namespace OnTrak.Models.ViewModel
         public string Name { get; set; }
         public string Description { get; set; }
         public Byte[] Image { get; set; }
+        public List<string> Instructions { get; set; }
         public ICollection<BodyArea> BodyAreas { get; set; }
         public ICollection<Muscle> Muscles { get; set; }
         public ICollection<BodyPart> BodyParts { get; set; }

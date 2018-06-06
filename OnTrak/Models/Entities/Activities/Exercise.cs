@@ -12,6 +12,8 @@ namespace OnTrak.Models.Entities.Activities
         public int ExerciseId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public ExerciseCategory ExerciseCategory{ get; set; }
+        public string Instructions { get; set; }
         public Byte[] Image { get; set; }
     }
 }
