@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OnTrak.Models.Entities.User.Infrastructure
+namespace OnTrak.Models.Entities.User.Infastructure
 {
     public class CustomPasswordValidator : PasswordValidator<AppUser>
     {
