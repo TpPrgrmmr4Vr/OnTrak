@@ -1,0 +1,393 @@
+﻿@model IEnumerable<BodyAreaViewModel>
+@using OnTrak.Models.UIModel
+@using OnTrak.Models.ViewModel
+@using OnTrak.Models.Data.EFRepo
+
+<div id="exercises">
+    <div class="container">
+        <div class="ex-button row">
+            <div class="col-sm-4">
+                <center>
+                    <button onclick="document.getElementById('bodyarea-1').style.display='block'"><h3>Upper Body</h3></button>
+                </center>
+            </div>
+            <div class="col-sm-4">
+                <center>
+                    <button onclick="document.getElementById('bodyarea-2').style.display='block'"><h3>Lower Body</h3></button>
+                </center>
+            </div>
+            <hr />
+            @foreach (var bodyArea in Model)
+            {
+                @*================UPPER BODY======================*@
+                <div id="bodyarea-1" class="parts">
+
+                    @if (bodyArea.BodyAreaId == 1)
+                    {
+                        <center>
+                            @foreach (var parts in bodyArea.BodyParts)
+                            {
+                                @if (parts.Image != null)
+                                {
+                                    <div class="col-sm-3">
+                                        @parts.Name
+                                        <button onclick="document.getElementById('bod-modal').style.display='block'"><img class="img-thumbnail" src="/BodyArea/RetrieveImage/@parts.Image" alt="" /></button>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="col-sm-3">
+                                        @parts.Name
+                                        <button onclick="document.getElementById('bod-modal').style.display='block'"><img class="img-thumbnail" src="~/Images/exercise-icon.png" alt="" /></button>
+                                    </div>
+                                }
+                            }
+                        </center>
+                    }
+
+                </div>
+                @*================END OF UPPER BODY======================*@
+                @*================LOWER BODY======================*@
+                <div id="bodyarea-2" class="parts">
+                    @if (bodyArea.BodyAreaId == 9)
+                    {
+                        <center>
+                            @foreach (var parts in bodyArea.BodyParts)
+                            {
+                                @if (parts.Image != null)
+                                {
+                                    <div class="col-sm-3">
+                                        @parts.Name
+                                        <button onclick="document.getElementById('bod-modal').style.display='block'"><img class="img-thumbnail" src="/BodyArea/RetrieveImage/@parts.Image" alt="" /></button>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="col-sm-3">
+                                        @parts.Name
+                                        <button onclick="document.getElementById('bod-modal').style.display='block'"><img class="img-thumbnail" src="~/Images/exercise-icon.png" alt="" /></button>
+                                    </div>
+                                }
+                            }
+                        </center>
+                    }
+                </div>
+                @*================END OF LOWER BODY======================*@
+            }
+
+
+
+
+
+
+
+
+
+
+            @*===========================START OF MODAL===============================*@
+            <div id="bod-modal" class="ex-modal">
+                <div class="ex-modal-content ex-animate-top">
+                    <header class="container ex-modal-header">
+                        <span onclick="document.getElementById('bod-modal').style.display='none'"
+                              class="ex-display-topright">&times;</span>
+                        <h2>Exercises</h2>
+                    </header>
+                    <div class="container ex-modal-body">
+                        <div class="row">
+                            @foreach (var bodyArea in Model)
+                            {
+                                @*================UPPER BODY======================*@
+                                @if (bodyArea.Name == "Upper Body")
+                                {
+                                    @foreach (var parts in bodyArea.BodyParts)
+                                    {
+                                        @foreach (var muscle in parts.Muscles)
+                                        {
+
+
+
+                                            @if (muscle.Image != null)
+                                            {
+
+                                                <div class="col-xs-3">
+                                                    @muscle.Name
+                                                    <button onclick="document.getElementById('muscle-info').style.display='block'"><img class="img-thumbnail" src="/BodyArea/RetrieveImage/@muscle.Image" alt="" /></button>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="col-xs-3">
+                                                    @muscle.Name
+                                                    <button onclick="document.getElementById('muscle-info').style.display='block'"><img class="img-thumbnail" src="~/Images/exercise-icon.png" alt="" /></button>
+                                                </div>
+                                            }
+                                        }
+                                    }
+                                }
+                                @*================END OF UPPER BODY======================*@
+
+                                @*================LOWER BODY======================*@
+                                else if (bodyArea.Name == "Lower Body")
+                                {
+                                    @foreach (var parts in bodyArea.BodyParts)
+                                    {
+                                        @foreach (var muscle in parts.Muscles)
+                                        {
+
+
+
+                                            @if (muscle.Image != null)
+                                            {
+
+                                                <div class="col-xs-3">
+                                                    @muscle.Name
+                                                    <button onclick="document.getElementById('muscle-info').style.display='block'"><img class="img-thumbnail" src="/BodyArea/RetrieveImage/@muscle.Image" alt="" /></button>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="col-xs-3">
+                                                    @muscle.Name
+                                                    <button onclick="document.getElementById('muscle-info').style.display='block'"><img class="img-thumbnail" src="~/Images/exercise-icon.png" alt="" /></button>
+                                                </div>
+                                            }
+                                        }
+                                    }
+                                }
+                                @*================END OF LOWER BODY======================*@
+
+                                @*================CARDIO======================*@
+                                else if (bodyArea.Name == "Cardio")
+                                {
+                                    @foreach (var parts in bodyArea.BodyParts)
+                                    {
+                                        @foreach (var muscle in parts.Muscles)
+                                        {
+
+
+
+                                            @if (muscle.Image != null)
+                                            {
+
+                                                <div class="col-xs-3">
+                                                    @muscle.Name
+                                                    <button onclick="document.getElementById('muscle-info').style.display='block'"><img class="img-thumbnail" src="/BodyArea/RetrieveImage/@muscle.Image" alt="" /></button>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="col-xs-3">
+                                                    @muscle.Name
+                                                    <button onclick="document.getElementById('muscle-info').style.display='block'"><img class="img-thumbnail" src="~/Images/exercise-icon.png" alt="" /></button>
+                                                </div>
+                                            }
+                                        }
+                                    }
+                                }
+                                @*================END OF CARDIO======================*@
+
+                            }
+                        </div>
+                    </div>
+
+                    <footer class="container ex-modal-footer">
+                        <p>Workout</p>
+                        @foreach (var bodyArea in Model)
+                        {
+                            @*================UPPER BODY======================*@
+                            @if (bodyArea.Name == "Upper Body")
+                            {
+                                @foreach (var parts in bodyArea.BodyParts)
+                                {
+                                    @foreach (var muscle in parts.Muscles)
+                                    {
+                                        <div id="muscle-info" class="muscles">
+                                            @if (muscle.Image != null)
+                                            {
+
+                                                <div class="col-xs-3">
+                                                    @muscle.Name
+                                                    <img class="img-thumbnail" src="/BodyArea/RetrieveImage/@muscle.Image" alt="" />
+                                                </div>
+                                                <div class="col-xs-9">
+                                                    @muscle.Description
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="col-xs-3">
+                                                    @muscle.Name
+                                                    <img class="img-thumbnail" src="~/Images/exercise-icon.png" alt="" />
+                                                </div>
+                                                <div class="col-xs-9">
+                                                    @muscle.Description
+                                                </div>
+                                            }
+                                        </div>
+                                    }
+                                }
+                            }
+                            @*================END OF UPPER BODY======================*@
+
+                            @*================LOWER BODY======================*@
+                            else if (bodyArea.Name == "Lower Body")
+                            {
+                                @foreach (var parts in bodyArea.BodyParts)
+                                {
+                                    @foreach (var muscle in parts.Muscles)
+                                    {
+                                        <div id="muscle-info" class="muscles">
+                                            @if (muscle.Image != null)
+                                            {
+
+                                                <div class="col-xs-3">
+                                                    @muscle.Name
+                                                    <img class="img-thumbnail" src="/BodyArea/RetrieveImage/@muscle.Image" alt="" />
+                                                </div>
+                                                <div class="col-xs-9">
+                                                    @muscle.Description
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="col-xs-3">
+                                                    @muscle.Name
+                                                    <img class="img-thumbnail" src="~/Images/exercise-icon.png" alt="" />
+                                                </div>
+                                                <div class="col-xs-9">
+                                                    @muscle.Description
+                                                </div>
+                                            }
+                                        </div>
+                                    }
+                                }
+                            }
+                            @*================END OF LOWER BODY======================*@
+
+                            @*================CARDIO======================*@
+                            @if (bodyArea.Name == "Cardio")
+                            {
+                                @foreach (var parts in bodyArea.BodyParts)
+                                {
+                                    @foreach (var muscle in parts.Muscles)
+                                    {
+                                        <div id="muscle-info" class="muscles">
+                                            @if (muscle.Image != null)
+                                            {
+
+                                                <div class="col-xs-3">
+                                                    @muscle.Name
+                                                    <img class="img-thumbnail" src="/BodyArea/RetrieveImage/@muscle.Image" alt="" />
+                                                </div>
+                                                <div class="col-xs-9">
+                                                    @muscle.Description
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="col-xs-3">
+                                                    @muscle.Name
+                                                    <img class="img-thumbnail" src="~/Images/exercise-icon.png" alt="" />
+                                                </div>
+                                                <div class="col-xs-9">
+                                                    @muscle.Description
+                                                </div>
+                                            }
+                                        </div>
+                                    }
+                                }
+                            }
+                            @*================END OF CARDIO======================*@
+                        }
+                    </footer>
+                </div>
+            </div>
+
+            @*================================END OF MODAL================================*@
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+@*<div class="col-sm-3">
+        <button onclick="document.getElementById('lo-bod-modal').style.display='block'"><img src="@Url.Content("~/Images/legs-exercise.png")" /><br /><h3>Lower Body</h3></button>
+    </div>*@
+
+@*======================================BODY PARTS MODAL======================================
+    <div id="up-bod-modal" class="ex-modal">
+        <div class="ex-modal-content ex-animate-top">
+            <header class="container ex-modal-header">
+                <span onclick="document.getElementById('up-bod-modal').style.display='none'"
+                      class="ex-display-topright">&times;</span>
+                <h2>Upper Body Exercises</h2>
+            </header>
+            <div class="container ex-modal-body">
+                <div class="row">
+                    @foreach (var bodyArea in Model)
+                {
+                    @if (bodyArea.Name == "Upper Body")
+                {<div class="col-sm-3">
+                        <center>
+                            @bodyArea.Description
+                            @if (bodyArea.Image != null)
+                        {<img class="img-thumbnail" src="/BodyArea/RetrieveImage/@bodyArea.BodyAreaId" alt="" />}
+                    else
+                    {<button onclick="document.getElementById('ex-info').style.display='block'"><img class="img-thumbnail" src="~/Images/exercise-icon.png" alt="" /></button>}
+
+                        </center>
+                    </div>
+            }
+
+            }
+                </div>
+            </div>
+            <footer class="container ex-modal-footer">
+                <p>Arms Workout</p>
+            </footer>
+        </div>
+    </div>
+    @*======================================END OF UPPER BODY======================================
+    @*======================================LOWER BODY======================================
+    <div id="lo-bod-modal" class="ex-modal">
+        <div class="ex-modal-content ex-animate-top">
+            <header class="container ex-modal-header">
+                <span onclick="document.getElementById('lo-bod-modal').style.display='none'"
+                      class="ex-display-topright">&times;</span>
+                <h2>Leg Exercises</h2>
+            </header>
+            <div class="container ex-modal-body">
+                <div class="row">
+                    @foreach (var bodyArea in Model)
+                    {
+                    @if (bodyArea.Name == "Lower Body")
+                    {<div class="col-sm-3">
+                        <center>
+                            @foreach (var parts in bodyArea.BodyParts)
+                            {
+                                @parts.Name
+                            @if (parts.Image != null)
+                            {<button onclick="document.getElementById('muscle-info').style.display='block'"><img class="img-thumbnail" src="/BodyArea/RetrieveImage/@parts.Image" alt="" /></button>}
+                            else
+                            {<button onclick="document.getElementById('ex-info').style.display='block'"><img class="img-thumbnail" src="~/Images/exercise-icon.png" alt="" /></button>}
+                            <div class="body-desc">
+                                    @parts.Name
+                            </div>
+                        {
+                            }
+                        </center>
+                    </div>}
+                    }
+                </div>
+            </div>
+            <footer class="container ex-modal-footer">
+                <p>Legs Workout</p>
+            </footer>
+        </div>
+    </div>
+    @*======================================END OF LOWER BODY======================================*@
+

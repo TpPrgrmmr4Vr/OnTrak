@@ -4,25 +4,30 @@ body {
     font-weight: 300;
     line-height: 1.6em;
 }
+
 .container {
     display: table;
     content: " ";
 }
+
 .clear {
-	clear:both;
+    clear: both;
 }
 /*  NavBar
 ==================================== */
 .navbar {
     background-color: #515151 !important;
 }
+
 .navbar-dark .navbar-brand {
     font-size: 30px;
 }
+
 .navbar-dark .navbar-nav .nav-link {
     color: #ffffff;
     font-size: 16px;
 }
+
     .navbar-dark .navbar-nav .nav-link:hover {
         color: #26AFF0;
     }
@@ -38,9 +43,10 @@ body {
     color: #000000;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #515151; 
+    border: 1px solid #515151;
     border-radius: .25rem;
 }
+
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5");
 }
@@ -57,51 +63,57 @@ body {
     padding-top: 40px;
     padding-bottom: 40px;
 }
-#second-line h2{
-    color: #ffffff;
-    padding-left: 20px;
-    padding-bottom: 20px;
-}
-#second-line .container p{
-    color: #ffffff;
-    float: left;
-}
 
-#second-line img{
-    float: left;
-    clear: both;
-    margin: 0 0 10px 10px;
-}
-@media (max-width: 767px){
-#second-line .container p{
-    float: none;
-}
+    #second-line h2 {
+        color: #ffffff;
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
 
-#second-line img{
-    float: none;
-}
+    #second-line .container p {
+        color: #ffffff;
+        float: left;
+    }
+
+    #second-line img {
+        float: left;
+        clear: both;
+        margin: 0 0 10px 10px;
+    }
+
+@media (max-width: 767px) {
+    #second-line .container p {
+        float: none;
+    }
+
+    #second-line img {
+        float: none;
+    }
 }
 
 
 /*  Third Line
 ==================================== */
-#third-line{
-    background: #fffff;
+#third-line {
+    background: #ffffff;
     padding-top: 40px;
     padding-bottom: 40px;
 }
-#third-line h2{
-    color: #515151;
-    padding-left: 20px;
-    padding-bottom: 20px;
-    text-align: center;
-}
-#third-line h3{
-    color: #515151;;
-}
-#third-line .container p{
-    color: #515151;
-}
+
+    #third-line h2 {
+        color: #515151;
+        padding-left: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+    }
+
+    #third-line h3 {
+        color: #515151;
+    }
+
+    #third-line .container p {
+        color: #515151;
+    }
 
 
 /*  About Page
@@ -160,6 +172,7 @@ body {
         color: inherit;
         text-decoration: none;
     }
+
 .panel-body {
     padding: 15px;
 }
@@ -199,7 +212,7 @@ body {
 #team .team-member {
     text-align: center;
     background-color: #F9F9F9;
-    padding-bottom: 15px;
+    /*padding-bottom: 15px;*/
     width: 100%;
     height: auto;
 }
@@ -212,6 +225,118 @@ body {
 /*  End of About Page
 ==================================== */
 
+/*  Exercise Page
+==================================== */
+.ex-button img {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.ex-button button {
+    overflow: hidden;
+    /*padding-top: 20px;
+    padding-bottom: 20px;*/
+}
+.parts {
+    display: none;
+}
+.body-desc{
+    display: none;
+}
+.muscles {
+    display: none;
+}
+/*  Modal
+==================================== */
+.ex-modal {
+    z-index: 3;
+    display: none;
+    padding-top: 30px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.ex-modal-content {
+    margin: auto;
+    background-color: #fff;
+    position: relative;
+    padding: 0;
+    outline: 0;
+    width: 600px;
+    border-radius: 15px;
+}
+
+.ex-animate-top {
+    position: relative;
+    animation: animatetop 0.4s;
+}
+
+.ex-display-topright {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+span ex-display-topright:hover {
+    background-color: #26AFF0;
+}
+
+.ex-modal-header {
+    background-color: #515151;
+    padding: 20px;
+    padding-bottom: 10px;
+    margin: 0;
+    color: #ffffff;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.ex-modal-body {
+    background-color: #ffffff;
+    height: 250px;
+    margin: 0;
+    overflow: scroll;
+}
+
+.ex-modal-body .row {
+    height: 100%;
+    width: auto;
+    overflow: scroll;
+}
+
+.ex-modal-footer {
+    background-color: #515151;
+    padding: 20px;
+    padding-bottom: 10px;
+    margin: 0;
+    color: #ffffff;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+/*  End of Modal
+==================================== */
+/*  End of Exercise Page
+==================================== */
 
 /*  Profile Page
 ==================================== */
@@ -237,9 +362,22 @@ body {
     margin: 0;
 }
 
+#profile img {
+    width: 100%;
+}
+
 
 /*  End of Profile Page
 ==================================== */
+
+/*  Body Area Page
+==================================== */
+
+
+
+/*  End of Body Area Page
+==================================== */
+
 
 /*  Media queries 
 ==================================== */
@@ -249,8 +387,36 @@ body {
         max-width: 1800px;
     }
 }
+
 @media (min-width: 1500px) {
     .container {
         max-width: 1400px;
+    }
+}
+
+@media (max-width:600px) {
+    .ex-modal-content {
+        margin: 0 10px;
+        width: auto !important
+    }
+
+    .ex-modal {
+        padding-top: 30px
+    }
+}
+
+@media (max-width:768px) {
+    .ex-modal-content {
+        width: 500px
+    }
+
+    .ex-modal {
+        padding-top: 50px
+    }
+}
+
+@media (min-width:993px) {
+    .ex-modal-content {
+        width: 900px
     }
 }
