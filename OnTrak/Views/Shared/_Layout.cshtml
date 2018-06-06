@@ -30,24 +30,15 @@
             <div class="collapse navbar-collapse" id="navbars-head">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index", "Home")">Home<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="@Url.Action("Index", "Home")">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("About", "Home")">About Us<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="@Url.Action("About", "Home")">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Library", "BodyArea")">Library</a>
                     </li>
 
-                    
-                    <li class="nav-item">
-                        <div class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="nav-link, navbar-dark dropdown-toggle">Admin<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a class="" href="@Url.Action("Index", "Admin")">Users</a></li>
-                                <li><a class="" href="@Url.Action("Index", "BodyArea")">Body Areas</a></li>
-                                <li><a class="" href="@Url.Action("Index", "Exercise")">Exercise</a></li>
-                            </ul>
-                        </div>
-                        
-                    </li>
                     @*<li class="nav-item">
                             <a class="nav-link" href="#">Link</a>
                         </li>
@@ -66,6 +57,19 @@
                 <form class="form-inline my-2 my-md-0">
                     <input class="form-control" type="text" placeholder="Search">
                 </form>
+                <ul class="navbar-nav" style="margin-left: 50px;">
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="nav-link, dropdown-toggle">Admin<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="" href="@Url.Action("Index", "Admin")">Users</a></li>
+                                <li><a class="" href="@Url.Action("Index", "BodyArea")">Body Areas</a></li>
+                                <li><a class="" href="@Url.Action("Index", "Exercise")">Exercise</a></li>
+                            </ul>
+                        </div>
+
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -90,5 +94,20 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/lib/Styles/bootstrap.min.js"></script>
     <script src="~/lib/Styles/jquery.min.js"></script>
+        <script>
+        // Get the modal
+        var upper_body_modal = document.getElementById('up-bod-modal');
+        var lower_body_modal = document.getElementById('bod-modal');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == upper_body_modal) {
+                upper_body_modal.style.display = "none";
+            }
+            else if (event.target == lower_body_modal) {
+                lower_body_modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>

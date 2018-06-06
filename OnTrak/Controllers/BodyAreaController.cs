@@ -29,6 +29,7 @@ namespace OnTrak.Controllers
         }
 
         public ViewResult Index() => View(bodyAreaRepository.BodyAreas.ToList().CreateListBAreaVM(bodyPartRepository, bodyAreaRepository, dbGetter));
+        public ViewResult Library() => View(bodyAreaRepository.BodyAreas.ToList().CreateListBAreaVM(bodyPartRepository, bodyAreaRepository, dbGetter));
         public ViewResult Edit(int? Id) {
             return View(bodyAreaRepository.CreateBAreaViewModel(bodyPartRepository, Id, dbGetter));
         }
