@@ -31,7 +31,7 @@
                                 {
                                     <div class="col-sm-3">
                                         @parts.Name
-                                        <button onclick="document.getElementById('bod-modal').style.display='block'"><img class="img-thumbnail" src="/BodyArea/RetrieveImage/@parts.Image" alt="" /></button>
+                                        <button onclick="document.getElementById('bod-modal').style.display='block'"><img class="img-thumbnail" src="/BodyArea/RetrieveImage/@parts.BodyAreaId" alt="" /></button>
                                     </div>
                                 }
                                 else
@@ -49,7 +49,7 @@
                 @*================END OF UPPER BODY======================*@
                 @*================LOWER BODY======================*@
                 <div id="bodyarea-2" class="parts">
-                    @if (bodyArea.BodyAreaId == 9)
+                    @if (bodyArea.BodyAreaId == 2)
                     {
                         <center>
                             @foreach (var parts in bodyArea.BodyParts)
@@ -58,7 +58,7 @@
                                 {
                                     <div class="col-sm-3">
                                         @parts.Name
-                                        <button onclick="document.getElementById('bod-modal').style.display='block'"><img class="img-thumbnail" src="/BodyArea/RetrieveImage/@parts.Image" alt="" /></button>
+                                        <button onclick="document.getElementById('bod-modal').style.display='block'"><img class="img-thumbnail" src="/BodyArea/RetrieveImage/@bodyArea.BodyAreaId" alt="" /></button>
                                     </div>
                                 }
                                 else
